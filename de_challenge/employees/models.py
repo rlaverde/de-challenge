@@ -7,10 +7,16 @@ class Department(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
     department = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.department
+
 
 class Job(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
     job = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.job
 
 
 class Employee(models.Model):
