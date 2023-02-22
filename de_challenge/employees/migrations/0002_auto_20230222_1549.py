@@ -15,21 +15,22 @@ def load_csv_data(apps, schema_editor):
     Department = apps.get_model('employees', 'Department')
     Employee = apps.get_model('employees', 'Employee')
 
-    with open(os.path.join(data_dir, 'initial_data/jobs.csv')) as csvfile:
-        csvreader = csv.reader(csvfile)
+    with open(os.path.join(data_dir, 'jobs.csv')) as csvfile:
+        csvreader = csv.DictReader(csvfile, fieldnames=["id", "job"])
         for row in csvreader:
-            Job.objects.create(*row)
+            Job.objects.create(**row)
 
-    with open(os.path.join(data_dir,
-                           'initial_data/deparments.csv')) as csvfile:
-        csvreader = csv.reader(csvfile)
+    with open(os.path.join(data_dir, 'departments.csv')) as csvfile:
+        csvreader = csv.DictReader(csvfile, fieldnames=["id", "department"])
         for row in csvreader:
-            Department.objects.create(*row)
+            Department.objects.create(**row)
 
-    with open(os.path.join(data_dir, 'initial_data/employees.csv')) as csvfile:
-        csvreader = csv.reader(csvfile)
+    with open(os.path.join(data_dir, 'hired_employees.csv')) as csvfile:
+        csvreader = csv.DictReader(
+            csvfile,
+            fieldnames=["id", "name", "datetime", "department_id", "job_id"])
         for row in csvreader:
-            Employee.objects.create(*row)
+            Employee.objects.create(**row)
 
 
 class Migration(migrations.Migration):
