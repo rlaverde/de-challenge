@@ -32,8 +32,8 @@ class Migration(migrations.Migration):
                 ('id', models.PositiveIntegerField(primary_key=True, serialize=False)),
                 ('name', models.CharField(max_length=200)),
                 ('datetime', models.DateTimeField(verbose_name='hire datetime')),
-                ('department_id', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='employees.department')),
-                ('job_id', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='employees.job')),
+                ('department', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='employees.department')),
+                ('job', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='employees.job')),
             ],
         ),
     ]

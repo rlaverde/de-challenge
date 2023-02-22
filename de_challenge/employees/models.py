@@ -18,5 +18,5 @@ class Employee(models.Model):
     name = models.CharField(max_length=200)
     datetime = models.DateTimeField('hire datetime')
 
-    department_id = models.ForeignKey(Department, on_delete=models.PROTECT)
-    job_id = models.ForeignKey(Job, on_delete=models.PROTECT)
+    department = models.ForeignKey(Department, on_delete=models.PROTECT)
+    job = models.ForeignKey(Job, on_delete=models.PROTECT)
