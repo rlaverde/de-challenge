@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from employees.urls import router as employees_router
 from employees.urls import report_urlpatterns
+from employees.views import create_avro_backup, restore_backup
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(employees_router.urls)),
-    path('reports/', include(report_urlpatterns))
+    path('reports/', include(report_urlpatterns)),
+    path('backup/<str:table>/', create_avro_backup, name='backup'),
+    path('backup_restore/<str:table>/', restore_backup, name='backup'),
 ]

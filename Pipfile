@@ -8,6 +8,8 @@ djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
 django = "*"
+pandas = "*"
+fastavro = "*"
 
 [dev-packages]
 
