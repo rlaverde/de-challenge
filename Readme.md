@@ -36,9 +36,9 @@ $ python manage.py runserver
 
 For adding and modifing data
 
-jobs: "http://127.0.0.1:8000/api/jobs/",
-departments: "http://127.0.0.1:8000/api/departments/",
-employees: "http://127.0.0.1:8000/api/employees/"
+- jobs: http://127.0.0.1:8000/api/jobs/
+- departments: http://127.0.0.1:8000/api/departments/
+- employees: http://127.0.0.1:8000/api/employees/
 
 # Reports
 
@@ -54,12 +54,12 @@ http://127.0.0.1:8000/reports/departmet_most_hires
 
 Creating avro backup:
 
-http://127.0.0.1:8000/backup/employee/
-http://127.0.0.1:8000/backup/department/
-http://127.0.0.1:8000/backup/job/
+- http://127.0.0.1:8000/backup/employee/
+- http://127.0.0.1:8000/backup/department/
+- http://127.0.0.1:8000/backup/job/
 
 Restoring latest avro backup:
 
-http://127.0.0.1:8000/backup_restore/employee/
-http://127.0.0.1:8000/backup_restore/department/
-http://127.0.0.1:8000/backup_restore/job/
+- http://127.0.0.1:8000/backup_restore/employee/
+- http://127.0.0.1:8000/backup_restore/department/
+- http://127.0.0.1:8000/backup_restore/job/
