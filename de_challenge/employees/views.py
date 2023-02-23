@@ -56,3 +56,23 @@ ORDER BY department, job ;
     with connection.cursor() as cursor:
         cursor.execute(query)
         return JsonResponse(dictfetchall(cursor), safe=False)
+
+
+def departmet_most_hires(request):
+    """
+    Return a list of departments that hired more than the mean.
+    """
+
+    query = """
+SELECT department_id, department, COUNT(*) as num_hires
+FROM employees_employee e
+JOIN employees_department d ON e.department_id = d.id
+WHERE strftime('%Y', datetime) = '2021'
+GROUP BY department_id
+HAVING COUNT(*) > (SELECT AVG(num_hires) FROM (SELECT department_id, COUNT(*) as num_hires FROM employees_employee WHERE strftime('%Y', datetime) = '2021' GROUP BY department_id) as temp)
+ORDER BY num_hires DESC;
+"""
+
+    with connection.cursor() as cursor:
+        cursor.execute(query)
+        return JsonResponse(dictfetchall(cursor), safe=False)
